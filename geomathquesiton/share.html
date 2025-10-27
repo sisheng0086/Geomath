@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>分享笔记 | Kongsi Nota | Share Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>分享笔记 | Kongsi Nota | Share Notes</h1>
+    <div class="language-switch">
+      <button onclick="setLanguage('zh')">中文</button>
+      <button onclick="setLanguage('ms')">Bahasa Melayu</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 中文 -->
+    <section class="lang zh">
+      <h2>提交你的学习笔记</h2>
+      <form>
+        <label for="name">姓名：</label><br />
+        <input type="text" id="name" name="name" /><br /><br />
+        <label for="note">笔记内容：</label><br />
+        <textarea id="note" name="note" rows="6" cols="50"></textarea><br /><br />
+        <label for="image">上传图片：</label><br />
+        <input type="file" id="image" name="image" accept="image/*" /><br /><br />
+        <button type="submit">提交</button>
+      </form>
+    </section>
+
+    <!-- 马来语 -->
+    <section class="lang ms">
+      <h2>Hantar Nota Pembelajaran Anda</h2>
+      <form>
+        <label for="name">Nama:</label><br />
+        <input type="text" id="name" name="name" /><br /><br />
+        <label for="note">Kandungan Nota:</label><br />
+        <textarea id="note" name="note" rows="6" cols="50"></textarea><br /><br />
+        <label for="image">Muat naik imej:</label><br />
+        <input type="file" id="image" name="image" accept="image/*" /><br /><br />
+        <button type="submit">Hantar</button>
+      </form>
+    </section>
+
+    <!-- 英文 -->
+    <section class="lang en">
+      <h2>Submit Your Learning Notes</h2>
+      <form>
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" /><br /><br />
+        <label for="note">Note Content:</label><br />
+        <textarea id="note" name="note" rows="6" cols="50"></textarea><br /><br />
+        <label for="image">Upload Image:</label><br />
+        <input type="file" id="image" name="image" accept="image/*" /><br /><br />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Geomath </p>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+      document.querySelector('.' + lang).style.display = 'block';
+    }
+    setLanguage('en'); 
+  </script>
+
+</body>
+</html>

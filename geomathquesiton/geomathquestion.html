@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Geomath — Questions 1-5</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Geomath </h1>
+    <div class="language-switch">
+      <button onclick="setLanguage('zh')">中文</button>
+      <button onclick="setLanguage('ms')">Bahasa Melayu</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <main>
+    <form id="quizForm">
+
+      <!-- 中文 -->
+      <section class="quiz-section lang zh">
+        <h2>数学选择题（1–5）</h2>
+
+        <div class="question" data-answer="B" id="q1">
+          <h3>题目 1：一个角度是 90°，它是什么角？</h3>
+          <label><input type="radio" name="q1" value="A" /> A. 锐角 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="B" /> B. 直角 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="C" /> C. 钝角 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="D" /> D. 周角 <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden">
+            <p><strong>计算方法：</strong> 直角是恰好 90° 的角。</p>
+            <p><strong>笔记：</strong> 所有直角三角形都包含一个 90° 的角。</p>
+          </div>
+        </div>
+
+        <div class="question" data-answer="C" id="q2">
+          <h3>题目 2：如果一条直线的斜率是 0，它表示什么类型的直线？</h3>
+          <label><input type="radio" name="q2" value="A" /> A. 斜率正的直线 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="B" /> B. 斜率负的直线 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="C" /> C. 水平直线 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="D" /> D. 垂直直线 <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden">
+            <p><strong>计算方法：</strong> 斜率 m=0 表示 y 不随 x 变化，即水平线。</p>
+          </div>
+        </div>
+
+        <div class="question" data-answer="A" id="q3">
+          <h3>题目 3：二次函数 y = x^2 的顶点坐标是多少？</h3>
+          <label><input type="radio" name="q3" value="A" /> A. (0, 0) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="B" /> B. (1, 1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="C" /> C. (0, 1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="D" /> D. (-1, 0) <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden">
+            <p><strong>计算方法：</strong> y = x^2 的顶点为 (0,0)。</p>
+          </div>
+        </div>
+
+        <div class="question" data-answer="D" id="q4">
+          <h3>题目 4：直角三角形的三个内角之和是多少？</h3>
+          <label><input type="radio" name="q4" value="A" /> A. 180° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="B" /> B. 90° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="C" /> C. 360° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="D" /> D. 180°（确认为三角形总和） <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden">
+            <p><strong>计算方法：</strong> 所有三角形内角和均为 180°。</p>
+          </div>
+        </div>
+
+        <div class="question" data-answer="B" id="q5">
+          <h3>题目 5：若 2x + 3 = 11，则 x 等于多少？</h3>
+          <label><input type="radio" name="q5" value="A" /> A. 3 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="B" /> B. 4 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="C" /> C. 5 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="D" /> D. 2 <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden">
+            <p><strong>计算方法：</strong> 2x = 8, x = 4。</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Bahasa Melayu -->
+      <section class="quiz-section lang ms hidden">
+        <h2>Soalan Pilihan (1–5)</h2>
+        <!-- replicate same 5 questions in ms with same data-answer and names q1..q5 -->
+        <!-- Question 1 -->
+        <div class="question" data-answer="B">
+          <h3>Soalan 1: Sudut 90° ialah jenis sudut apa?</h3>
+          <label><input type="radio" name="q1" value="A" /> A. Sudut tajam <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="B" /> B. Sudut tegak <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="C" /> C. Sudut tumpul <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="D" /> D. Sudut penuh <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Kaedah:</strong> Sudut tegak ialah 90°.</p></div>
+        </div>
+        <!-- q2 -->
+        <div class="question" data-answer="C">
+          <h3>Soalan 2: Jika kecerunan ialah 0, apakah jenis garis itu?</h3>
+          <label><input type="radio" name="q2" value="A" /> A. Garis positif <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="B" /> B. Garis negatif <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="C" /> C. Garis mendatar <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="D" /> D. Garis menegak <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Kaedah:</strong> m=0 bermaksud garis mendatar.</p></div>
+        </div>
+        <!-- q3 -->
+        <div class="question" data-answer="A">
+          <h3>Soalan 3: Puncak y = x^2 ialah?</h3>
+          <label><input type="radio" name="q3" value="A" /> A. (0,0) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="B" /> B. (1,1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="C" /> C. (0,1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="D" /> D. (-1,0) <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Kaedah:</strong> (0,0).</p></div>
+        </div>
+        <!-- q4 -->
+        <div class="question" data-answer="D">
+          <h3>Soalan 4: Jumlah sudut dalaman segitiga ialah?</h3>
+          <label><input type="radio" name="q4" value="A" /> A. 180° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="B" /> B. 90° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="C" /> C. 360° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="D" /> D. 180° <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Kaedah:</strong> Semua segitiga berjumlah 180°.</p></div>
+        </div>
+        <!-- q5 -->
+        <div class="question" data-answer="B">
+          <h3>Soalan 5: Jika 2x + 3 = 11, x = ?</h3>
+          <label><input type="radio" name="q5" value="A" /> A. 3 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="B" /> B. 4 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="C" /> C. 5 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="D" /> D. 2 <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Kaedah:</strong> x = 4.</p></div>
+        </div>
+
+      </section>
+
+      <!-- English -->
+      <section class="quiz-section lang en hidden">
+        <h2>Math Multiple Choice (1–5)</h2>
+        <!-- replicate same five Qs in English -->
+        <div class="question" data-answer="B">
+          <h3>Question 1: What type of angle is 90°?</h3>
+          <label><input type="radio" name="q1" value="A" /> A. Acute angle <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="B" /> B. Right angle <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="C" /> C. Obtuse angle <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q1" value="D" /> D. Reflex angle <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Calculation:</strong> Right angle is exactly 90°.</p></div>
+        </div>
+
+        <div class="question" data-answer="C">
+          <h3>Question 2: If a line has slope 0, what type of line is it?</h3>
+          <label><input type="radio" name="q2" value="A" /> A. Positive slope line <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="B" /> B. Negative slope line <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="C" /> C. Horizontal line <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q2" value="D" /> D. Vertical line <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Calculation:</strong> m=0 means horizontal line.</p></div>
+        </div>
+
+        <div class="question" data-answer="A">
+          <h3>Question 3: What is the vertex of y = x^2?</h3>
+          <label><input type="radio" name="q3" value="A" /> A. (0,0) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="B" /> B. (1,1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="C" /> C. (0,1) <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q3" value="D" /> D. (-1,0) <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Calculation:</strong> Vertex at (0,0).</p></div>
+        </div>
+
+        <div class="question" data-answer="D">
+          <h3>Question 4: What is the sum of interior angles of a triangle?</h3>
+          <label><input type="radio" name="q4" value="A" /> A. 180° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="B" /> B. 90° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="C" /> C. 360° <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q4" value="D" /> D. 180° <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Calculation:</strong> Sum is 180°.</p></div>
+        </div>
+
+        <div class="question" data-answer="B">
+          <h3>Question 5: If 2x + 3 = 11, what is x?</h3>
+          <label><input type="radio" name="q5" value="A" /> A. 3 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="B" /> B. 4 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="C" /> C. 5 <span class="tick"></span><span class="cross"></span></label>
+          <label><input type="radio" name="q5" value="D" /> D. 2 <span class="tick"></span><span class="cross"></span></label>
+          <div class="explanation hidden"><p><strong>Calculation:</strong> x = 4.</p></div>
+        </div>
+
+      </section>
+
+      <div class="controls">
+        <button type="button" id="submitBtn" onclick="submitQuiz()">提交答案</button>
+        <button type="button" id="nextBtn" class="hidden" onclick="goToNext()">下一页</button>
+      </div>
+
+    </form>
+
+    <button type="button" id="shareBtn" onclick="goToSharePage()">分享笔记</button>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Geomath </p>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+      const el = document.querySelector('.' + lang);
+      if (el) el.classList.remove('hidden');
+
+      const submitBtn = document.getElementById('submitBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const shareBtn = document.getElementById('shareBtn');
+      if (lang === 'zh') {
+        submitBtn.textContent = '提交答案';
+        nextBtn.textContent = '下一页';
+        shareBtn.textContent = '分享笔记';
+      } else if (lang === 'ms') {
+        submitBtn.textContent = 'Hantar Jawapan';
+        nextBtn.textContent = 'Soalan Seterusnya';
+        shareBtn.textContent = 'Kongsi Nota';
+      } else {
+        submitBtn.textContent = 'Submit Answers';
+        nextBtn.textContent = 'Next Page';
+        shareBtn.textContent = 'Share Notes';
+      }
+    }
+
+    function submitQuiz() {
+      const visible = document.querySelector('.quiz-section:not(.hidden)');
+      const questions = visible.querySelectorAll('.question');
+      let allAnswered = true;
+      let score = 0;
+
+      questions.forEach(q => {
+        const correct = q.dataset.answer;
+        const sel = q.querySelector('input[type="radio"]:checked');
+        const explanation = q.querySelector('.explanation');
+        if (explanation) explanation.classList.remove('hidden');
+
+        q.querySelectorAll('label').forEach(label => {
+          const input = label.querySelector('input');
+          const tick = label.querySelector('.tick');
+          const cross = label.querySelector('.cross');
+          tick.innerHTML = '';
+          cross.innerHTML = '';
+          label.style.color = ''; // reset
+          if (input.value === correct) {
+            tick.innerHTML = '<span class="tick-icon">✔</span>';
+          }
+          if (input.checked) {
+            if (input.value === correct) {
+              score += 1;
+              label.style.color = 'green';
+            } else {
+              label.style.color = 'red';
+              cross.innerHTML = '<span class="cross-icon">✘</span>';
+            }
+          }
+        });
+
+        if (!sel) allAnswered = false;
+      });
+
+      // store part1 score (0-5)
+      localStorage.setItem('geomath_part1', String(score));
+
+      if (allAnswered) document.getElementById('nextBtn').classList.remove('hidden');
+      alert(`your score is：${score} / ${questions.length}`);
+    }
+
+    function goToNext() {
+      location.href = 'question2.html';
+    }
+
+    function goToSharePage() {
+      location.href = 'share.html';
+    }
+
+    // init
+    setLanguage('en');
+  </script>
+
+</body>
+</html>

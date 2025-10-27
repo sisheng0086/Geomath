@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Geomath — Class Summary</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* small overrides for results page */
+    .results { max-width:780px; margin:28px auto; padding:22px; background:#f8f5fb; border-left:6px solid #6a0dad; border-radius:10px; text-align:center; }
+    .score-box { display:inline-block; padding:18px 28px; background:#fff; border-radius:12px; border:2px solid #ece6f8; margin-bottom:16px; font-size:28px; color:#6a0dad; font-weight:700; }
+    .rating { font-size:20px; margin:12px 0 10px; font-weight:600; }
+    .advice { background:#fff; padding:12px 16px; border-radius:8px; border:1px solid #eee; display:inline-block; max-width:640px; }
+    .landscape { margin-top:18px; font-size:22px; font-weight:700; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Geomath </h1>
+    <div class="language-switch">
+      <button onclick="setLanguage('zh')">中文</button>
+      <button onclick="setLanguage('ms')">Bahasa Melayu</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="quiz-section lang zh">
+      <h2>班级成绩统计</h2>
+      <div class="results" aria-live="polite">
+        <div class="score-box" id="totalScore">总分: 0 / 10</div>
+        <div id="ratingText" class="rating">等级</div>
+        <div id="adviceText" class="advice"></div>
+        <div id="landscape" class="landscape"></div>
+        <div style="margin-top:14px;">
+          <button onclick="resetAll()" class="btn">清除记录并重置</button>
+          <button onclick="location.href='geomathquestion.html'" class="btn">回到练习页</button>
+        </div>
+      </div>
+
+      <div style="max-width:780px;margin:18px auto;">
+        <h3>分项</h3>
+        <ul id="detailList" style="background:#fff;padding:14px;border-radius:8px;border:1px solid #eee;"></ul>
+      </div>
+    </section>
+
+    <section class="quiz-section lang ms hidden">
+      <h2>Ringkasan Markah Kelas</h2>
+      <div class="results" aria-live="polite">
+        <div class="score-box" id="totalScoreMs">Jumlah: 0 / 10</div>
+        <div id="ratingTextMs" class="rating">Gred</div>
+        <div id="adviceTextMs" class="advice"></div>
+        <div id="landscapeMs" class="landscape"></div>
+        <div style="margin-top:14px;">
+          <button onclick="resetAll()" class="btn">Kosongkan Rekod</button>
+          <button onclick="location.href='geomathquestion.html'" class="btn">Kembali ke Latihan</button>
+        </div>
+      </div>
+      <div style="max-width:780px;margin:18px auto;">
+        <h3>Butiran</h3>
+        <ul id="detailListMs" style="background:#fff;padding:14px;border-radius:8px;border:1px solid #eee;"></ul>
+      </div>
+    </section>
+
+    <section class="quiz-section lang en hidden">
+      <h2>Class Score Summary</h2>
+      <div class="results" aria-live="polite">
+        <div class="score-box" id="totalScoreEn">Total: 0 / 10</div>
+        <div id="ratingTextEn" class="rating">Rating</div>
+        <div id="adviceTextEn" class="advice"></div>
+        <div id="landscapeEn" class="landscape"></div>
+        <div style="margin-top:14px;">
+          <button onclick="resetAll()" class="btn">Clear Records</button>
+          <button onclick="location.href='geomathquestion.html'" class="btn">Back to Practice</button>
+        </div>
+      </div>
+      <div style="max-width:780px;margin:18px auto;">
+        <h3>Details</h3>
+        <ul id="detailListEn" style="background:#fff;padding:14px;border-radius:8px;border:1px solid #eee;"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Geomath </p>
+  </footer>
+
+  <script>
+    function getStoredInt(key) {
+      const v = localStorage.getItem(key);
+      if (!v) return 0;
+      const n = parseInt(v, 10);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function ratingFor(total) {
+      // mapping to requested labels: 0,3,5,7,10
+      if (total === 0) return { cls: 'bad', zh: '很差', ms: 'Buruk', en: 'Bad', adviceZh: '需要更多练习。', adviceMs: 'Perlu lebih latihan.', adviceEn: 'Needs more practice.', landscape: '🌧️ 0 - Bad' };
+      if (total <= 3) return { cls: 'try', zh: '再努力', ms: 'Cuba lagi', en: 'Try more', adviceZh: '请复习错误题目并重试。', adviceMs: 'Sila ulang kaji soalan yang salah.', adviceEn: 'Review incorrect items and try again.', landscape: '🌥️ 3 - Try more' };
+      if (total <= 5) return { cls: 'keep', zh: '继续努力', ms: 'Teruskan', en: 'Keep going', adviceZh: '表现不错，继续保持进步。', adviceMs: 'Bagus, teruskan usaha.', adviceEn: 'Good effort, keep improving.', landscape: '⛅ 5 - Keep going' };
+      if (total <= 7) return { cls: 'good', zh: '良好', ms: 'Baik', en: 'Good', adviceZh: '很棒，继续巩固知识。', adviceMs: 'Bagus, kukuhkan pengetahuan.', adviceEn: 'Well done, consolidate your knowledge.', landscape: '🌤️ 7 - Good' };
+      return { cls: 'best', zh: '恭喜', ms: 'Tahniah', en: 'Congratulations', adviceZh: '非常优秀，继续保持！', adviceMs: 'Sangat cemerlang!', adviceEn: 'Excellent work, keep it up!', landscape: '🌟 10 - Congratulations' };
+    }
+
+    function render() {
+      const p1 = getStoredInt('geomath_part1'); // 0..5
+      const p2 = getStoredInt('geomath_part2'); // 0..5
+      const total = Math.max(0, Math.min(10, p1 + p2));
+
+      const r = ratingFor(total);
+
+      // zh
+      document.getElementById('totalScore').textContent = `总分: ${total} / 10`;
+      document.getElementById('ratingText').textContent = r.zh;
+      document.getElementById('adviceText').textContent = r.adviceZh;
+      document.getElementById('landscape').textContent = r.landscape;
+      document.getElementById('detailList').innerHTML = `<li>题目 1–5: ${p1} / 5</li><li>题目 6–10: ${p2} / 5</li>`;
+
+      // ms
+      document.getElementById('totalScoreMs').textContent = `Jumlah: ${total} / 10`;
+      document.getElementById('ratingTextMs').textContent = r.ms;
+      document.getElementById('adviceTextMs').textContent = r.adviceMs;
+      document.getElementById('landscapeMs').textContent = r.landscape;
+      document.getElementById('detailListMs').innerHTML = `<li>Soalan 1–5: ${p1} / 5</li><li>Soalan 6–10: ${p2} / 5</li>`;
+
+      // en
+      document.getElementById('totalScoreEn').textContent = `Total: ${total} / 10`;
+      document.getElementById('ratingTextEn').textContent = r.en;
+      document.getElementById('adviceTextEn').textContent = r.adviceEn;
+      document.getElementById('landscapeEn').textContent = r.landscape;
+      document.getElementById('detailListEn').innerHTML = `<li>Questions 1–5: ${p1} / 5</li><li>Questions 6–10: ${p2} / 5</li>`;
+    }
+
+    function resetAll() {
+      localStorage.removeItem('geomath_part1');
+      localStorage.removeItem('geomath_part2');
+      render();
+      alert('记录已清除');
+    }
+
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+      const el = document.querySelector('.' + lang);
+      if (el) el.classList.remove('hidden');
+    }
+
+    // init
+    setLanguage('en');
+    render();
+  </script>
+
+</body>
+</html>
